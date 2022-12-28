@@ -9,7 +9,7 @@ const Footer = () => {
                 <a href="https://www.instagram.com/corvus_tenebrae"><img src="/img/ig.png" alt="Instagram"/></a>
             </div>
             <img src="/img/logo.png" alt="Logo" className="footer__logo"/>
-            <p className="footer__text">Desenvolvido no curso da <a className="footer__text--ancor" href="https://github.com/lucassmaniotto/React-Cursos/tree/main/">Alura</a>.</p>
+            <p className="footer__text">Desenvolvido no curso da <a className="footer__text--ancor" href="https://github.com/lucassmaniotto/Organo-App">Alura</a>.</p>
         </div>
     );
 };
