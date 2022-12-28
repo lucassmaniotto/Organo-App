@@ -12,6 +12,20 @@ Este é um projeto React feito com [Create React App](https://github.com/faceboo
 
 ## Detalhes do projeto
 
+O Organo é um projeto de estudo de React, onde o usuário pode criar times e equipes, e adicionar membros a elas, com o objetivo de organizar melhor o trabalho em equipe.
+
+### Funcionalidades
+
+## Adicionando membros a times
+O usuário pode adicionar os membros de sua equipe através do formulário abaixo, vinculando-os a um time, com seu nome, cargo e foto.
+
+![image](https://user-images.githubusercontent.com/101435037/209827854-9fbcf40e-6f17-4b38-a029-767950098494.png)
+
+É importante ressaltar que a imagem deve ser informada através de url para que o programa possa navegar até ela e exibi-la na página:
+
+![image](https://user-images.githubusercontent.com/101435037/209828098-a9e14d03-5c86-46ec-92a8-25abd18f4f3a.png)
+
+Após adicionar seus membros, cada um é dispostos em sessões selecionadas pelo formulário
 ### Configurando o projeto
 Para que o projeto funcione corretamente, é necessário instalar as dependências do projeto. Para isso, basta executar o comando abaixo no terminal:
 
