@@ -61,13 +61,7 @@ function App() {
         users={users}
         forRegisteredUser={user => forNewAddedUser(user)}
       />
-      {crews.map(crew => (
-        <SectionTitle 
-          key={crew.name}
-          title="Minhas Organizações: "
-          users = {users.filter(user => user.crew === crew.name)}
-        />
-      ))}
+      {users.length > 0 && <SectionTitle title="Minhas Organizações: " />}
       {crews.map (crew => (
         <Crew 
           key={crew.name} 
