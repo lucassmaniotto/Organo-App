@@ -1,0 +1,65 @@
+.footer__wrapper {
+    position: absolute;
+    bottom: auto;
+    width: 100%;
+    display: flex;
+    background-color: #6278F7;
+    background-image: url(../../../public/img/fundo.png);
+    padding: 64px 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer__social-media img{
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.footer__text {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+}
+
+.footer__text--ancor {
+    color: #fff;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .footer__wrapper {
+        flex-direction: column-reverse;
+        padding: 32px 0;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .footer__social-media {
+        margin-top: 16px;
+    }
+
+    .footer__text {
+        margin-top: 32px;
+        font-size: 10px;
+        line-height: 20px;
+    }
+
+    .footer__social-media img{
+        margin: 0 10px;
+    }
+
+    .footer__logo{
+        width: 100px;
+        margin: 16px;
+    }
+
+    .footer__mobile-display {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}

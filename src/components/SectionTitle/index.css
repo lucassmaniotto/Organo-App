@@ -1,0 +1,33 @@
+.section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.section__title {
+    text-align: center;
+    font-family: 'Prata';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 72px;
+    color: #6278F7;
+    margin: 0;
+}
+
+.section__title--border {
+    color: #6278F7;
+    border-bottom: 4px solid;
+    padding-bottom: 16px;
+    width: 64px;
+}
+
+@media screen and (max-width: 768px) {
+    .section__title {
+        font-size: 28px;
+        line-height: 43px;
+        padding: 0 16px;
+    }
+}

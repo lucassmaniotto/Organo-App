@@ -1,0 +1,42 @@
+.input__content {
+    margin: 24px 0;
+}
+
+.input__label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.input__data {
+    background: #fff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    mix-blend-mode: normal;
+    width: 100%;
+    border: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.input__data:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    .input__content {
+        margin: 16px 0;
+    }
+
+    .input__label {
+        font-size: 14px;
+    }
+
+    .input__data {
+        padding: 16px;
+        font-size: 12px;
+    }
+}

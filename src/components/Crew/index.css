@@ -1,0 +1,22 @@
+.crew__section {
+    text-align: center;
+    padding: 32px 0;
+}
+
+.crew__title {
+    font-family: 'Prata';
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 43px;
+    color: #212121;
+    border-bottom: 4px solid;
+    padding-bottom: 16px;
+    display: inline-block;
+}
+
+.crew__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 32px;
+}

@@ -1,0 +1,36 @@
+.button {
+    background: #6278F7;
+    mix-blend-mode: normal;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 24px 28px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 32px 0;
+}
+
+.button:hover {
+    background: #4a5ed1;
+}
+
+.button:active {
+    background: #3a4fa8;
+}
+
+.button:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    .button {
+        width: 100%;
+        font-size: 16px;
+    }
+}

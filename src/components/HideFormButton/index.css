@@ -1,0 +1,12 @@
+.hide-form-button{
+    background: url(../../../public/img/hide-form-button.png) no-repeat;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    cursor: pointer;
+    border: none;
+}
