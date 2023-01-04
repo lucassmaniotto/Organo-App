@@ -1,6 +1,9 @@
 .crew__section {
     text-align: center;
     padding: 32px 0;
+    background-image: url(../../../public/img/fundo.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .crew__title {
