@@ -4,6 +4,7 @@ import Select from "../Select";
 import Button from "../Button";
 import HideFormButton from "../HideFormButton";
 import { useState } from "react";
+import { v4 as id } from "uuid";
 
 const Form = ({forRegisteredUser, forHideForm, crews, users}) => {
     const [name, setName] = useState('');
@@ -13,7 +14,8 @@ const Form = ({forRegisteredUser, forHideForm, crews, users}) => {
 
     const onSave = (event) => {
         event.preventDefault();
-        forRegisteredUser({ 
+        forRegisteredUser({
+            id: id(),
             name, 
             charge, 
             image, 

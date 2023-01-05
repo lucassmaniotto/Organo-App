@@ -9,7 +9,7 @@ const Crew = ({crew, users, onDeleteUser, changeColor}) => {
 
     return (
         (users.length > 0) ? <section className="crew__section" style={backgroundColor}>
-            <input type='color' className='crew__input' value={crew.color} onChange={event => changeColor(event.target.value, crew.name)}/>
+            <input type='color' className='crew__input' value={crew.color} onChange={event => changeColor(event.target.value, crew.id)}/>
             <h3 className="crew__title" style={borderBottomColor}>{crew.name}</h3>
             <div className="crew__cards">
                 {users.map(user => {
