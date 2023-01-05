@@ -56,4 +56,15 @@
         width: 48px;
         height: 48px;
     }
+
+    .crew__cards {
+        margin-top: 16px;
+    }
+
+    .crew__section {
+        padding: 16px 0;
+        background-image: url(../../../public/img/fundo.png);
+        background-repeat: repeat;
+        background-size: contain;
+    }
 }

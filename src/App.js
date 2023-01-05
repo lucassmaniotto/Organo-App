@@ -48,6 +48,7 @@ function App() {
   const initialUsers = [
     {
       id: id(),
+      favorite: false,
       name: 'JULIANA AMOASEI',
       charge: 'Desenvolvedora de software e instrutora',
       image: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
@@ -56,6 +57,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'DANIEL ARTINE',
       charge: 'Engenheiro de Software na Stone Age',
       image: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
@@ -63,6 +65,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'PAULO SILVEIRA',
       charge: 'Hipster e CEO da Alura',
       image: 'https://www.alura.com.br/assets/img/lideres/paulo-silveira.1647533644.jpeg',
@@ -70,6 +73,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'GUILHERME LIMA',
       charge: 'Desenvolvedor Python e JavaScript na Alura',
       image: '	https://www.alura.com.br/assets/img/lideres/guilherme-lima.1647533644.jpeg',
@@ -77,12 +81,7 @@ function App() {
     },
     {
       id: id(),
-      name: 'PAULO SILVEIRA',
-      charge: 'Hipster e CEO da Alura',
-      image: 'https://www.alura.com.br/assets/img/lideres/paulo-silveira.1647533644.jpeg',
-    },
-    {
-      id: id(),
+      favorite: false,
       name: 'JULIANA AMOASEI',
       charge: 'Desenvolvedora de software e instrutora',
       image: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
@@ -90,6 +89,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'DANIEL ARTINE',
       charge: 'Engenheiro de Software na Stone Age',
       image: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
@@ -97,6 +97,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'GUILHERME LIMA',
       charge: 'Desenvolvedor Python e JavaScript na Alura',
       image: '	https://www.alura.com.br/assets/img/lideres/guilherme-lima.1647533644.jpeg',
@@ -104,6 +105,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'DANIEL ARTINE',
       charge: 'Engenheiro de Software na Stone Age',
       image: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
@@ -111,6 +113,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'JULIANA AMOASEI',
       charge: 'Desenvolvedora de software e instrutora',
       image: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
@@ -118,6 +121,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'GUILHERME LIMA',
       charge: 'Desenvolvedor Python e JavaScript na Alura',
       image: '	https://www.alura.com.br/assets/img/lideres/guilherme-lima.1647533644.jpeg',
@@ -125,6 +129,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'JULIANA AMOASEI',
       charge: 'Desenvolvedora de software e instrutora',
       image: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
@@ -132,6 +137,7 @@ function App() {
     },
     {
       id: id(),
+      favorite: false,
       name: 'DANIEL ARTINE',
       charge: 'Engenheiro de Software na Stone Age',
       image: 'https://www.alura.com.br/assets/img/lideres/daniel-artine.1647533644.jpeg',
@@ -152,19 +158,20 @@ function App() {
     localStorage.setItem('users', JSON.stringify([...users, user]));
   };
 
+  const forRegisterCrew = (newCrew) => {
+    setCrews([...crews, { ...newCrew, id: id() }]);
+    localStorage.setItem('crewList', JSON.stringify([...crews, { id: id(), ...newCrew }]));
+  };
+
   const forDeleteUser = (id) => {
     setUsers(users.filter((user) => user.id !== id));
     localStorage.setItem('users', JSON.stringify(users.filter((user) => user.id !== id)));
   };
 
   const forHideForm = () => {
-    const form = document.querySelector('.section__form-content');
-    if (form.classList.contains('hide')) {
-        form.classList.remove('hide');
-    } else {
-        form.classList.add('hide');
-    }
-}
+    const form = document.querySelectorAll('.section__form-wrapper');
+    form.forEach((item) => item.classList.contains('hide') ? item.classList.remove('hide') : item.classList.add('hide'));
+  };
 
   const forChangeCrewColor = (color, id) => {
     setCrews(crews.map((crew) => {
@@ -173,6 +180,16 @@ function App() {
       }
     localStorage.setItem('crewList', JSON.stringify([...crews]));
     return crew;
+    }));
+  };
+
+  const forChangeFavorite = (id) => {
+    setUsers(users.map((user) => {
+      if (user.id === id) {
+        user.favorite = !user.favorite;
+      }
+      localStorage.setItem('users', JSON.stringify([...users]));
+      return user;
     }));
   };
 
@@ -187,17 +204,21 @@ function App() {
         users={users}
         forRegisteredUser={user => forNewAddedUser(user)}
         forHideForm={forHideForm}
+        forRegisteredNewCrew={forRegisterCrew}
       />
-      {users.length > 0 && <SectionTitle title="Minhas Organizações: " />}
-      {crews.map ((crew) => (
-        <Crew 
-          key={crew.id}
-          crew={crew}
-          users={users.filter(user => user.crew === crew.name)}
-          changeColor={forChangeCrewColor}
-          onDeleteUser={forDeleteUser}
-        />
-      ))}
+      <section className="section__crews">
+        {users.length > 0 && <SectionTitle title="Minhas Organizações: " />}
+        {crews.map ((crew) => (
+          <Crew 
+            key={crew.id}
+            crew={crew}
+            users={users.filter(user => user.crew === crew.name)}
+            changeColor={forChangeCrewColor}
+            onDeleteUser={forDeleteUser}
+            onFavorite={forChangeFavorite}
+          />
+        ))}
+      </section>
       <Footer />
     </div>
   );

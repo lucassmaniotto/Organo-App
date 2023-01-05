@@ -44,6 +44,12 @@
     overflow-y: auto;
 }
 
+.card__favorite-icon{
+    font-size: 1.5em;
+    color: rgb(235, 78, 78);
+    cursor: pointer;
+}
+
 .delete__button{
     position: absolute;
     top: 5px;
@@ -65,5 +71,6 @@
     .card__charge {
         font-size: 18px;
         line-height: 17px;
+        padding: 0 28px;
     }
 }

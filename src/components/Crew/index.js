@@ -2,7 +2,7 @@ import './index.css';
 import Card from "../Card";
 import hexToRgba from 'hex-to-rgba';
 
-const Crew = ({crew, users, onDeleteUser, changeColor}) => {
+const Crew = ({crew, users, onDeleteUser, changeColor, onFavorite}) => {
 
     const backgroundColor = { backgroundColor: hexToRgba(crew.color, 0.2) };
     const borderBottomColor = { borderBottomColor: crew.color };
@@ -13,7 +13,16 @@ const Crew = ({crew, users, onDeleteUser, changeColor}) => {
             <h3 className="crew__title" style={borderBottomColor}>{crew.name}</h3>
             <div className="crew__cards">
                 {users.map(user => {
-                    return <Card key={user.id} id={user.id} name={user.name} charge={user.charge} image={user.image} color={crew.color} onDelete={onDeleteUser}/>
+                    return <Card 
+                        key={user.id} 
+                        id={user.id} 
+                        name={user.name} 
+                        charge={user.charge} 
+                        image={user.image} 
+                        color={crew.color} 
+                        onDelete={onDeleteUser}
+                        onFavorite={onFavorite}
+                    />
                 })}
             </div>
         </section>
