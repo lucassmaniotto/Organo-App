@@ -22,6 +22,30 @@
     box-sizing: border-box;
 }
 
+.input__color {
+    background: #fff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    border: none;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+}
+
+.input__color::-webkit-color-swatch{
+    border: none;
+    border-radius: 10px;
+}
+
+.input__color::-moz-color-swatch{
+    border: none;
+    border-radius: 10px;
+}
+
 .input__data:focus {
     outline: none;
 }

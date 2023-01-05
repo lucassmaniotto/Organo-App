@@ -5,7 +5,7 @@ import Button from "../Button";
 import HideFormButton from "../HideFormButton";
 import { useState } from "react";
 
-const Form = (props) => {
+const Form = ({forRegisteredUser, forHideForm, crews, users}) => {
     const [name, setName] = useState('');
     const [charge, setCharge] = useState('');
     const [image, setImage] = useState('');
@@ -13,7 +13,7 @@ const Form = (props) => {
 
     const onSave = (event) => {
         event.preventDefault();
-        props.forRegisteredUser({ 
+        forRegisteredUser({ 
             name, 
             charge, 
             image, 
@@ -23,29 +23,22 @@ const Form = (props) => {
         setCharge('');
         setImage('');
         setCrew('');
-    }
-
-    const onHideForm = () => {
-        const form = document.querySelector('.section__form-content');
-        if (form.classList.contains('hide')) {
-            form.classList.remove('hide');
-        } else {
-            form.classList.add('hide');
-        }
-    }
+    };
 
     return (
         <section className="section__form">
             <form className="section__form-content " onSubmit={onSave}>
                 <h2 className="section__form-title">Preencha os dados para criar o card do colaborador.</h2>
                 <Input
+                    className="input__data"
                     label="Nome"
                     required={true}
                     placeholder="Digite seu nome"
                     value={name}
                     onChange={value => setName(value)}
                 />
-                <Input 
+                <Input
+                    className="input__data"
                     label="Cargo" 
                     required={true} 
                     placeholder="Digite seu cargo" 
@@ -53,6 +46,7 @@ const Form = (props) => {
                     onChange={value => setCharge(value)}
                 />
                 <Input 
+                    className="input__data"
                     label="Imagem" 
                     placeholder="https://..." 
                     value={image}
@@ -60,14 +54,14 @@ const Form = (props) => {
                 />
                 <Select 
                     label="Time" 
-                    itens={props.crews} 
+                    itens={crews} 
                     required={true} 
                     value={crew}
                     onChange={value => setCrew(value)}
                 />
                 <Button>Criar card</Button>
             </form>
-            {props.users.length > 0 && <HideFormButton onClick={onHideForm} />}
+            {users.length > 0 && <HideFormButton onClick={forHideForm} />}
         </section>
     )
 }

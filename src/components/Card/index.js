@@ -1,14 +1,10 @@
 import './index.css';
 import { CgCloseR } from 'react-icons/cg';
 
-const Card = ({name, image, charge, color}) => {
-  
-  const deleteCard = () => {
-    console.log('deletar');
-  };
-  
+const Card = ({name, image, charge, color, onDelete}) => {
+
   return (<div className="card__wrapper">
-    <CgCloseR className="delete__button" onClick={deleteCard} />
+    <CgCloseR className="delete__button" onClick={onDelete} />
     <div className="card__header" style={{ backgroundColor: color}}>
         <img src={image} alt={name} className='card__img'/>
     </div>
