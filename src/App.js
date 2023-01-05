@@ -152,8 +152,9 @@ function App() {
     localStorage.setItem('users', JSON.stringify([...users, user]));
   };
 
-  const forDeleteUser = () => {
-    console.log('deletar');
+  const forDeleteUser = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+    localStorage.setItem('users', JSON.stringify(users.filter((user) => user.id !== id)));
   };
 
   const forHideForm = () => {
