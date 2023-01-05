@@ -10,38 +10,31 @@ function App() {
   // Variables
   const crewList =[{
     name: 'Programação',
-    primaryColor: '#57C278',
-    secondaryColor: '#D9F7E9',
+    color: '#57C278'
   },
   {
     name: 'Front-End',
-    primaryColor: '#82CFFA',
-    secondaryColor: '#E8F8FF',
+    color: '#82CFFA'
   },
   {
     name: 'Data Science',
-    primaryColor: '#A6D157',
-    secondaryColor: '#F0F8E2',
+    color: '#A6D157'
   },
   {
     name: 'DevOps',
-    primaryColor: '#E06B69',
-    secondaryColor: '#FDE7E8',
+    color: '#E06B69'
   },
   {
     name: 'UX e Design',
-    primaryColor: '#DB6EBF',
-    secondaryColor: '#FAE9F5',
+    color: '#DB6EBF'
   },
   {
     name: 'Mobile',
-    primaryColor: '#FFBA05',
-    secondaryColor: '#FFF5D9',
+    color: '#FFBA05'
   },
   {
     name: 'Inovação e Gestão',
-    primaryColor: '#FF8A29',
-    secondaryColor: '#FFEEDF',
+    color: '#FF8A29'
   }];
 
   const initialUsers = [
@@ -50,6 +43,7 @@ function App() {
       charge: 'Desenvolvedora de software e instrutora',
       image: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
       crew: crewList[0].name,
+      color: crewList[0].color
     },
     {
       name: 'DANIEL ARTINE',
@@ -124,12 +118,12 @@ function App() {
     },
   ];
 
-  //const local = JSON.parse(localStorage.getItem('users')) || initialUsers;
+  const localUsers = JSON.parse(localStorage.getItem('users')) || initialUsers;
+  const localCrews = JSON.parse(localStorage.getItem('crewList')) || crewList;
 
   // States
-  const [crews, setCrews] = useState (crewList);
-  //const [users, setUsers] = useState([...local]);
-  const [users, setUsers] = useState([...initialUsers]);
+  const [crews, setCrews] = useState([...localCrews]);
+  const [users, setUsers] = useState([...localUsers]);
 
   // Functions
   const forNewAddedUser = (user) => {
@@ -153,9 +147,10 @@ function App() {
   const forChangeCrewColor = (color, name) => {
     setCrews(crews.map((crew) => {
       if (crew.name === name) {
-        crew.primaryColor = color;
+        crew.color = color;
       }
-      return crew;
+    localStorage.setItem('crewList', JSON.stringify([...crews]));
+    return crew;
     }));
   };
 
