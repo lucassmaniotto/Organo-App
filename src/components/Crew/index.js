@@ -1,17 +1,29 @@
 import './index.css';
 import Card from "../Card";
+import hexToRgba from 'hex-to-rgba';
 
-const Crew = (props) => {
+const Crew = ({crew, users, onDeleteUser, changeColor, onFavorite}) => {
 
-    const cssPrimaryColor = { backgroundColor: props.secondaryColor };
-    const cssSecondaryColor = { borderBottomColor: props.primaryColor };
+    const backgroundColor = { backgroundColor: hexToRgba(crew.color, 0.2) };
+    const borderBottomColor = { borderBottomColor: crew.color };
 
     return (
-        (props.users.length > 0) ? <section className="crew__section" style={cssPrimaryColor}>
-            <h3 className="crew__title" style={cssSecondaryColor}>{props.name}</h3>
+        (users.length > 0) ? <section className="crew__section" style={backgroundColor}>
+            <input type='color' className='crew__input' value={crew.color} onChange={event => changeColor(event.target.value, crew.id)}/>
+            <h3 className="crew__title" style={borderBottomColor}>{crew.name}</h3>
             <div className="crew__cards">
-                {props.users.map(user => {
-                    return <Card key={user.name} name={user.name} charge={user.charge} image={user.image} color={props.primaryColor}/>
+                {users.map(user => {
+                    return <Card 
+                        key={user.id} 
+                        id={user.id} 
+                        name={user.name} 
+                        charge={user.charge} 
+                        image={user.image} 
+                        color={crew.color}
+                        isFavorite={user.favorite}
+                        onDelete={onDeleteUser}
+                        onFavorite={onFavorite}
+                    />
                 })}
             </div>
         </section>

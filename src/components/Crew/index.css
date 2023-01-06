@@ -1,4 +1,5 @@
 .crew__section {
+    position: relative;
     text-align: center;
     padding: 32px 0;
     background-image: url(../../../public/img/fundo.png);
@@ -22,4 +23,48 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 32px;
+}
+
+.crew__input {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+}
+
+.crew__input::-webkit-color-swatch{
+    border: none;
+    border-radius: 10px;
+}
+
+.crew__input::-moz-color-swatch{
+    border: none;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .crew__input {
+        top: 10px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .crew__cards {
+        margin-top: 16px;
+    }
+
+    .crew__section {
+        padding: 16px 0;
+        background-image: url(../../../public/img/fundo.png);
+        background-repeat: repeat;
+        background-size: contain;
+    }
 }

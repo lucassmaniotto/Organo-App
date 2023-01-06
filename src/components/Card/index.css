@@ -1,4 +1,5 @@
 .card__wrapper {
+    position: relative;
     width: 280px;
     margin: 0 16px 16px 16px;
 }
@@ -17,23 +18,47 @@
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 10px 10px;
-    padding-top: 60px;
-    padding-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
 
 .card__name {
     color: #6278F7;
     font-size: 18px;
-    line-height: 22px;
     font-weight: bold;
+    line-height: 22px;
     margin-bottom: 8px;
+    text-transform: uppercase;
 }
 
 .card__charge {
     font-size: 16px;
+    font-weight: 500;
+    word-wrap: break-word;
+    box-sizing: border-box;
     line-height: 22px;
-    color: #212121;
+    color: #3f3b3b;
     padding: 0 16px;
+    min-height: 5em;
+    max-height: 5em;
+    overflow-y: auto;
+}
+
+.card__favorite-icon{
+    font-size: 1.5em;
+    color: rgb(235, 78, 78);
+    cursor: pointer;
+}
+
+.delete__button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #ffffffff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
 }
 
 @media screen and (max-width: 768px) {
@@ -46,5 +71,6 @@
     .card__charge {
         font-size: 18px;
         line-height: 17px;
+        padding: 0 28px;
     }
 }
