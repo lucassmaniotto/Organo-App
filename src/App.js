@@ -173,7 +173,7 @@ function App() {
       Swal.fire({
         icon: 'error',
         title: 'Atenção!',
-        text: 'Não é possível excluir um usuário favorito!',
+        text: 'Não é possível excluir um usuário favoritado!',
       });
     }
   };
