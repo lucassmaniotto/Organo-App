@@ -1,4 +1,4 @@
-# Organo
+# Organo v2.0
 
 Este é um projeto React feito com [Create React App](https://github.com/facebook/create-react-app) sobre organização de times e equipes desenvolvido no curso de formação React da [Alura](https://cursos.alura.com.br/formacao-react-javascript)
 
