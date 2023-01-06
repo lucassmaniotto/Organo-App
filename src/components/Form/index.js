@@ -95,7 +95,7 @@ const Form = ({forRegisteredUser, forHideForm, forRegisteredNewCrew, crews, user
                                 onChange={value => setColor(value)}
                             />
                         </div>
-                        <Button>Criar card</Button>
+                        <Button>Criar time</Button>
                     </div>
                 </form>
             </div>
