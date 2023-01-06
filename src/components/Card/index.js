@@ -1,12 +1,16 @@
 import './index.css';
 import { CgCloseR } from 'react-icons/cg';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import userEvent from '@testing-library/user-event';
 
-const Card = ({id, name, image, charge, color, onDelete, onFavorite}) => {
+const Card = ({id, name, image, charge, color, isFavorite, onDelete, onFavorite}) => {
 
-  function favorite () {
+  const favorite = () => {
     onFavorite(id);
+  }
+
+  const propsFavorite = {
+    className: 'card__favorite-icon',
+    onClick: favorite
   }
 
   return (<div className="card__wrapper">
@@ -21,9 +25,9 @@ const Card = ({id, name, image, charge, color, onDelete, onFavorite}) => {
         <h4 className='card__name'>{name}</h4>
         <h3 className='card__charge'>{charge}</h3>
         <div className='card__favorite'>
-          {userEvent.favorite 
-            ? <FaRegHeart className='card__favorite-icon' onClick={favorite}/> 
-            : <FaHeart className='card__favorite-icon' onClick={favorite}/>
+          {isFavorite 
+            ? <FaHeart {...propsFavorite}/> 
+            : <FaRegHeart {...propsFavorite}/>
           }
         </div>
     </div>

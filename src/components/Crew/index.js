@@ -19,7 +19,8 @@ const Crew = ({crew, users, onDeleteUser, changeColor, onFavorite}) => {
                         name={user.name} 
                         charge={user.charge} 
                         image={user.image} 
-                        color={crew.color} 
+                        color={crew.color}
+                        isFavorite={user.favorite}
                         onDelete={onDeleteUser}
                         onFavorite={onFavorite}
                     />

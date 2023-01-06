@@ -185,9 +185,8 @@ function App() {
 
   const forChangeFavorite = (id) => {
     setUsers(users.map((user) => {
-      if (user.id === id) {
-        user.favorite = !user.favorite;
-      }
+      if (user.id === id) user.favorite = !user.favorite;
+      
       localStorage.setItem('users', JSON.stringify([...users]));
       return user;
     }));

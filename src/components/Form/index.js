@@ -34,7 +34,7 @@ const Form = ({forRegisteredUser, forHideForm, forRegisteredNewCrew, crews, user
         event.preventDefault();
         forRegisteredNewCrew({name: crewName, color: color});
         setNewCrew('');
-        setColor('6278f7');
+        setColor('#6278f7');
     }
 
     return (

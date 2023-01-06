@@ -39,7 +39,7 @@
 .section__form-colors{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-bottom: 40px;
 }
 
