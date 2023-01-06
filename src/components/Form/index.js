@@ -99,7 +99,7 @@ const Form = ({forRegisteredUser, forHideForm, forRegisteredNewCrew, crews, user
                     </div>
                 </form>
             </div>
-            {users.length > 0 && <HideFormButton onClick={forHideForm} />}
+            {users.length > 0 && <HideFormButton onButtonPressed={forHideForm} />}
         </section>
     )
 }
