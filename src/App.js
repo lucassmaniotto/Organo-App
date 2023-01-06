@@ -164,8 +164,11 @@ function App() {
   };
 
   const forDeleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
-    localStorage.setItem('users', JSON.stringify(users.filter((user) => user.id !== id)));
+    if (!users.find((user) => user.id === id).favorite) {
+      const newUsers = users.filter((user) => user.id !== id);
+      setUsers(newUsers);
+      localStorage.setItem('users', JSON.stringify(newUsers));
+    }
   };
 
   const forHideForm = () => {
@@ -185,8 +188,9 @@ function App() {
 
   const forChangeFavorite = (id) => {
     setUsers(users.map((user) => {
-      if (user.id === id) user.favorite = !user.favorite;
-      
+      if (user.id === id) {
+        user.favorite = !user.favorite;
+      }
       localStorage.setItem('users', JSON.stringify([...users]));
       return user;
     }));

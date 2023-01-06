@@ -79,7 +79,7 @@ const Form = ({forRegisteredUser, forHideForm, forRegisteredNewCrew, crews, user
                     <div className="section__form-content">
                         <div className="section__form-colors">
                             <Input
-                                className="input__data"
+                                className="input__data input__data--color"
                                 label="Nome do time"
                                 required={true}
                                 placeholder="Digite o nome do time"

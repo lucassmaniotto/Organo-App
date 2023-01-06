@@ -50,6 +50,16 @@
     outline: none;
 }
 
+@media screen and (max-width: 1320px) {
+    .input__data--color {
+        width: 80%;
+    }
+    
+    .input__data--color::placeholder {
+        font-size: 13px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .input__content {
         margin: 16px 0;
@@ -62,5 +72,9 @@
     .input__data {
         padding: 16px;
         font-size: 12px;
+    }
+
+    .input__data--color::placeholder {
+        font-size: 9.5px;
     }
 }
