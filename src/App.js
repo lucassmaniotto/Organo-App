@@ -5,6 +5,7 @@ import Form from "./components/Form";
 import SectionTitle from "./components/SectionTitle";
 import Crew from "./components/Crew";
 import Footer from "./components/Footer";
+import Swal from 'sweetalert2';
 
 function App() {
 
@@ -168,6 +169,12 @@ function App() {
       const newUsers = users.filter((user) => user.id !== id);
       setUsers(newUsers);
       localStorage.setItem('users', JSON.stringify(newUsers));
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Atenção!',
+        text: 'Não é possível excluir um usuário favorito!',
+      });
     }
   };
 
