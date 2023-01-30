@@ -7,7 +7,7 @@ interface BannerProps {
     alt?: string;
 }
 
-const Banner = ({ src, alt }: BannerProps) => {
+export const Banner = ({ src, alt }: BannerProps) => {
     return (
         <header className="banner">
             {/* <img src="/img/banner.png" alt="Banner principal da página"/> */}
@@ -15,5 +15,3 @@ const Banner = ({ src, alt }: BannerProps) => {
         </header>
     )
 }
-
-export default Banner;

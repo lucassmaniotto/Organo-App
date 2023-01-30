@@ -1,9 +1,11 @@
-import "./index.css";
 import Input from "../Input";
 import Select from "../Select";
-import Button from "../Button";
+import { Button } from "../Button";
 import HideFormButton from "../HideFormButton";
+
 import { useState } from "react";
+
+import "./index.css";
 
 const Form = (props) => {
     const [name, setName] = useState('');

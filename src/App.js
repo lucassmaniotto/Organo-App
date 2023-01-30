@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Banner from "./components/Banner";
+
+import { Banner } from "./components/Banner";
 import Form from "./components/Form";
 import SectionTitle from "./components/SectionTitle";
 import Crew from "./components/Crew";
