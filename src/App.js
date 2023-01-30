@@ -136,7 +136,10 @@ function App() {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner 
+        src="/img/banner.png"
+        alt="Banner principal da página" /* alt está como opcional */
+      />
       <Form 
         crews={crewNames} 
         users={users}

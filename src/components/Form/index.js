@@ -65,7 +65,9 @@ const Form = (props) => {
                     value={crew}
                     onChange={value => setCrew(value)}
                 />
-                <Button>Criar card</Button>
+                <Button>
+                    Criar card
+                </Button>
             </form>
             {props.users.length > 0 && <HideFormButton onClick={onHideForm} />}
         </section>
