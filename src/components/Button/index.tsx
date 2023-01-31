@@ -1,8 +1,8 @@
-import React from 'react';
+import { ReactElement } from 'react';
 import './index.css';
 
 interface ButtonProps{
-    children: React.ReactElement;
+    children: ReactElement | string;
 }
 
 export const Button = (props: ButtonProps) => {

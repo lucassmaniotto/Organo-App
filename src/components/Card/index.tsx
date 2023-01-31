@@ -1,6 +1,13 @@
 import './index.css';
 
-const Card = ({name, image, charge, color}) => {
+interface CardProps {
+  name: string;
+  charge: string;
+  image: string;
+  color: string;
+}
+
+const Card = ({name, image, charge, color}: CardProps) => {
   return (<div className="card__wrapper">
     <div className="card__header" style={{ backgroundColor: color}}>
         <img src={image} alt={name} className='card__img'/>

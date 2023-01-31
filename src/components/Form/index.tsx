@@ -4,16 +4,23 @@ import { Button } from "../Button";
 import HideFormButton from "../HideFormButton";
 
 import { useState } from "react";
+import { IUser } from "../../shared/interfaces/iUser";
 
 import "./index.css";
 
-const Form = (props) => {
+interface FormProps {
+    forRegisteredUser: (user: IUser) => void;
+    crews: string[];
+    users: IUser[];
+}
+
+const Form = (props: FormProps) => {
     const [name, setName] = useState('');
     const [charge, setCharge] = useState('');
     const [image, setImage] = useState('');
     const [crew, setCrew] = useState('');
 
-    const onSave = (event) => {
+    const onSave = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         props.forRegisteredUser({ 
             name, 
@@ -28,7 +35,7 @@ const Form = (props) => {
     }
 
     const onHideForm = () => {
-        const form = document.querySelector('.section__form-content');
+        const form = document.querySelector('.section__form-content') as HTMLElement;
         if (form.classList.contains('hide')) {
             form.classList.remove('hide');
         } else {
@@ -38,7 +45,7 @@ const Form = (props) => {
 
     return (
         <section className="section__form">
-            <form className="section__form-content " onSubmit={onSave}>
+            <form className="section__form-content " onSubmit={event => onSave(event)}>
                 <h2 className="section__form-title">Preencha os dados para criar o card do colaborador.</h2>
                 <Input
                     label="Nome"
