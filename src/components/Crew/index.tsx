@@ -32,7 +32,7 @@ const Crew = (props: CrewProps) => {
                 })}
             </div>
         </section>
-        : ''
+        : <></>
     );
 }
 

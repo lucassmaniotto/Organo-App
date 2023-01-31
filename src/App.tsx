@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IUser } from "./shared/interfaces/iUser";
 
 import { Banner } from "./components/Banner";
 import Form from "./components/Form";
@@ -127,11 +128,11 @@ function App() {
     },
   ];
 
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState<IUser[]>(initialUsers || []);
 
   const crewNames = crews.map(crew => crew.name);
 
-  const forNewAddedUser = (user) => {
+  const forNewAddedUser = (user: IUser) => {
     setUsers([...users, user]);
   };
 
@@ -139,7 +140,7 @@ function App() {
     <div className="App">
       <Banner 
         src="/img/banner.png"
-        alt="Banner principal da página" /* alt está como opcional */
+        alt="Banner principal da página"
       />
       <Form 
         crews={crewNames} 
