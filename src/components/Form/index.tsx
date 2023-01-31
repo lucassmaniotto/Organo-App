@@ -19,6 +19,7 @@ const Form = (props: FormProps) => {
     const [charge, setCharge] = useState('');
     const [image, setImage] = useState('');
     const [crew, setCrew] = useState('');
+    const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
     const onSave = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -26,12 +27,14 @@ const Form = (props: FormProps) => {
             name, 
             charge, 
             image, 
-            crew 
+            crew,
+            date
         });
         setName('');
         setCharge('');
         setImage('');
         setCrew('');
+        setDate(new Date().toISOString().slice(0, 10));
     }
 
     const onHideForm = () => {
@@ -66,6 +69,13 @@ const Form = (props: FormProps) => {
                     placeholder="https://..." 
                     value={image}
                     onChange={value => setImage(value)}
+                />
+                <Input
+                    label="Data de entrada no time"
+                    placeholder=""
+                    value={date}
+                    onChange={value => setDate(value)}
+                    type="date"
                 />
                 <Select 
                     label="Time" 

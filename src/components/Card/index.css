@@ -17,23 +17,30 @@
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 10px 10px;
-    padding-top: 60px;
-    padding-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
 
 .card__name {
     color: #6278F7;
     font-size: 18px;
-    line-height: 22px;
     font-weight: bold;
+    line-height: 22px;
     margin-bottom: 8px;
+    text-transform: uppercase;
 }
 
 .card__charge {
     font-size: 16px;
+    font-weight: 500;
+    word-wrap: break-word;
+    box-sizing: border-box;
     line-height: 22px;
-    color: #212121;
+    color: #3f3b3b;
     padding: 0 16px;
+    min-height: 5em;
+    max-height: 5em;
+    overflow-y: auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -46,5 +53,6 @@
     .card__charge {
         font-size: 18px;
         line-height: 17px;
+        padding: 0 28px;
     }
 }

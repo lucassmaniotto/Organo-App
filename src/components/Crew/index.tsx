@@ -12,6 +12,11 @@ interface CrewProps {
 
 const Crew = (props: CrewProps) => {
 
+    function formatDate(date: string) {
+        const [year, month, day] = date.split('-');
+        return `${day}/${month}/${year}`;
+    }
+
     const cssPrimaryColor = { backgroundColor: props.secondaryColor };
     const cssSecondaryColor = { borderBottomColor: props.primaryColor };
 
@@ -27,6 +32,7 @@ const Crew = (props: CrewProps) => {
                             charge={user.charge} 
                             image={user.image} 
                             color={props.primaryColor}
+                            date={formatDate(user.date)}
                         />
                     )
                 })}
