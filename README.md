@@ -5,7 +5,7 @@ Este é um projeto React feito com [Create React App](https://github.com/faceboo
 | :placard: Vitrine.Dev |     |
 | -------------  | --- |
 | :sparkles: Nome        | **Organo**
-| :label: Tecnologias | react, jsx, css, html, npm
+| :label: Tecnologias | react, tsx, typescript, css, html, npm
 | :rocket: URL         | https://organo-app-blond.vercel.app/
 
 ![](/public/img/banner.png#vitrinedev)

@@ -1,12 +1,24 @@
-import "./index.css";
-import Input from "../Input";
-import Select from "../Select";
-import Button from "../Button";
-import HideFormButton from "../HideFormButton";
 import { useState } from "react";
 import { v4 as id } from "uuid";
+import { IUser } from "../../shared/interfaces/iUser";
 
-const Form = ({forRegisteredUser, forHideForm, forRegisteredNewCrew, crews, users}) => {
+import Input from "../Input";
+import Select from "../Select";
+import { Button } from "../Button";
+import HideFormButton from "../HideFormButton";
+
+import "./index.css";
+
+interface FormProps {
+    forRegisteredUser: (user: IUser) => void;
+    crews: string[];
+    users: IUser[];
+    forHideForm: () => void;
+    forRegisteredNewCrew: (crew: {name: string, color: string}) => void;
+}
+
+
+const Form = ({forRegisteredUser, forHideForm, forRegisteredNewCrew, crews, users}: FormProps) => {
 
     const [name, setName] = useState('');
     const [charge, setCharge] = useState('');
@@ -15,7 +27,7 @@ const Form = ({forRegisteredUser, forHideForm, forRegisteredNewCrew, crews, user
     const [crewName, setNewCrew] = useState('');
     const [color, setColor] = useState('#6278f7');
 
-    const onSave = (event) => {
+    const onSave = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         forRegisteredUser({
             id: id(),
@@ -30,7 +42,7 @@ const Form = ({forRegisteredUser, forHideForm, forRegisteredNewCrew, crews, user
         setCrew('');
     };
 
-    const onRegisterNewCrew = (event) => {
+    const onRegisterNewCrew = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         forRegisteredNewCrew({name: crewName, color: color});
         setNewCrew('');

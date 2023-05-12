@@ -1,16 +1,19 @@
-import { v4 as id } from 'uuid';
 import { useState } from "react";
-import Banner from "./components/Banner";
+import { v4 as id } from 'uuid';
+import Swal from 'sweetalert2';
+import { IUser } from "./shared/interfaces/iUser";
+import { ICrew } from "./shared/interfaces/iCrew";
+
+import { Banner } from "./components/Banner";
 import Form from "./components/Form";
 import SectionTitle from "./components/SectionTitle";
-import Crew from "./components/Crew";
+import { Crew } from "./components/Crew";
 import Footer from "./components/Footer";
-import Swal from 'sweetalert2';
 
 function App() {
 
   // Variables
-  const crewList =[{
+  const crewList: ICrew[] = [{
     id: id(),
     name: 'Programação',
     color: '#57C278'
@@ -46,7 +49,7 @@ function App() {
     color: '#FF8A29'
   }];
 
-  const initialUsers = [
+  const initialUsers: IUser[] = [
     {
       id: id(),
       favorite: false,
@@ -146,26 +149,30 @@ function App() {
     },
   ];
 
-  const localUsers = JSON.parse(localStorage.getItem('users')) || initialUsers;
-  const localCrews = JSON.parse(localStorage.getItem('crewList')) || crewList;
+  const usersString = localStorage.getItem('users');
+  const localUsers = usersString ? JSON.parse(usersString) : initialUsers;
+  
+  const crewListString = localStorage.getItem('crewList');
+  const localCrews = crewListString ? JSON.parse(crewListString) : crewList;
 
   // States
-  const [crews, setCrews] = useState([...localCrews]);
-  const [users, setUsers] = useState([...localUsers]);
+  const [crews, setCrews] = useState<ICrew[]>([...localCrews]);
+  const [users, setUsers] = useState<IUser[]>([...localUsers]);
 
   // Functions
-  const forNewAddedUser = (user) => {
+  const forNewAddedUser = (user: IUser) => {
     setUsers([...users, user]);
     localStorage.setItem('users', JSON.stringify([...users, user]));
   };
 
-  const forRegisterCrew = (newCrew) => {
+  const forRegisterCrew = (newCrew: ICrew) => {
     setCrews([...crews, { ...newCrew, id: id() }]);
-    localStorage.setItem('crewList', JSON.stringify([...crews, { id: id(), ...newCrew }]));
+    localStorage.setItem('crewList', JSON.stringify([...crews, { ...newCrew, id: id() }]));
   };
 
-  const forDeleteUser = (id) => {
-    if (!users.find((user) => user.id === id).favorite) {
+  const forDeleteUser = (id: string) => {
+    const userToDelete = users.find((user) => user.id === id);
+    if (userToDelete && !userToDelete.favorite) {
       const newUsers = users.filter((user) => user.id !== id);
       setUsers(newUsers);
       localStorage.setItem('users', JSON.stringify(newUsers));
@@ -178,13 +185,14 @@ function App() {
     }
   };
 
+
   const forHideForm = () => {
     const form = document.querySelectorAll('.section__form-wrapper');
     form.forEach((item) => item.classList.contains('hide') ? item.classList.remove('hide') : item.classList.add('hide'));
   };
 
-  const forChangeCrewColor = (color, id) => {
-    setCrews(crews.map((crew) => {
+  const forChangeCrewColor = (color: string, id: string | undefined): void => {
+    setCrews(crews.map((crew: ICrew) => {
       if (crew.id === id) {
         crew.color = color;
       }
@@ -193,7 +201,7 @@ function App() {
     }));
   };
 
-  const forChangeFavorite = (id) => {
+  const forChangeFavorite = (id: string) => {
     setUsers(users.map((user) => {
       if (user.id === id) {
         user.favorite = !user.favorite;
@@ -201,14 +209,17 @@ function App() {
       localStorage.setItem('users', JSON.stringify([...users]));
       return user;
     }));
-  };
+  };  
 
-  const crewNames = crews.map(crew => crew.name);
+  const crewNames = crews.map((crew: { name: string; }) => crew.name);
 
   // Render
   return (
     <div className="App">
-      <Banner />
+      <Banner 
+        src="img/banner.png"
+        alt="Banner com o título do projeto"
+      />
       <Form 
         crews={crewNames} 
         users={users}
@@ -218,7 +229,7 @@ function App() {
       />
       <section className="section__crews">
         {users.length > 0 && <SectionTitle title="Minhas Organizações: " />}
-        {crews.map ((crew) => (
+        {crews.map ((crew: ICrew) => (
           <Crew 
             key={crew.id}
             crew={crew}
