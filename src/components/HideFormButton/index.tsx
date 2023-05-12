@@ -1,6 +1,6 @@
 import "./index.css";
 
-const HideFormButton = ({ onButtonPressed }) => {
+const HideFormButton = ({ onButtonPressed }: { onButtonPressed: () => void }) => {
     return (
         <button className="hide-form-button" onClick={onButtonPressed}></button>
     );

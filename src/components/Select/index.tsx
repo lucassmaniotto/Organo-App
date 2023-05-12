@@ -1,6 +1,14 @@
 import './index.css';
 
-const Select = (props) => {
+interface SelectProps {
+    onChange: (value: string) => void;
+    label: string;
+    required?: boolean;
+    value: string;
+    itens: string[];
+}
+
+const Select = (props: SelectProps) => {
     return (
         <div className="select__content">
             <label className="select__label">{props.label}</label>

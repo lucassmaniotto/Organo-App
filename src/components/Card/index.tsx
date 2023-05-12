@@ -2,7 +2,18 @@ import './index.css';
 import { CgCloseR } from 'react-icons/cg';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
-const Card = ({id, name, image, charge, color, isFavorite, onDelete, onFavorite}) => {
+interface CardProps {
+  id: string;
+  name: string;
+  charge: string;
+  image: string;
+  color: string;
+  isFavorite: boolean | undefined;
+  onDelete: (id: string) => void;
+  onFavorite: (id: string) => void;
+}
+
+const Card = ({id, name, image, charge, color, isFavorite, onDelete, onFavorite}: CardProps) => {
 
   const favorite = () => {
     onFavorite(id);
